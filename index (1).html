@@ -6,17 +6,8 @@
     <title>360° Property Tour</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        /* Custom styles to ensure Pannellum fills its container and for body height */
-        html, body {
-            height: 100%; /* Make html and body take full viewport height */
-            margin: 0;
-            padding: 0;
-            overflow: hidden; /* Prevent body scrollbars */
-        }
-        #panorama-viewer {
-            /* flex-grow ensures it takes available space in a flex column.
-               Pannellum will handle its internal sizing within this div. */
-        }
+        html, body { height: 100%; margin: 0; padding: 0; overflow: hidden; }
+        #panorama-viewer { /* Pannellum handles internal sizing */ }
     </style>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/pannellum@2.5.6/build/pannellum.css"/>
 </head>
@@ -42,18 +33,16 @@
             </button>
             
             <button id="btn-bedroom3" class="px-5 py-2.5 bg-gray-700 text-white text-sm font-semibold rounded-full shadow-md hover:bg-gray-600 transition-all duration-300 transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-opacity-50">
-                Master Bathroom & Walk In Closet
-            </button>
+                Bedroom 3 </button>
             <button id="btn-bedroom4" class="px-5 py-2.5 bg-gray-700 text-white text-sm font-semibold rounded-full shadow-md hover:bg-gray-600 transition-all duration-300 transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-opacity-50">
                 Bedroom 4
             </button>
             <button id="btn-kitchen" class="px-5 py-2.5 bg-gray-700 text-white text-sm font-semibold rounded-full shadow-md hover:bg-gray-600 transition-all duration-300 transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-opacity-50">
                 Kitchen
             </button>
-            </nav>
+        </nav>
 
-        <div id="panorama-viewer" class="flex-grow bg-gray-200 rounded-lg overflow-hidden shadow-xl min-h-[70vh]">
-            </div>
+        <div id="panorama-viewer" class="flex-grow bg-gray-200 rounded-lg overflow-hidden shadow-xl min-h-[70vh]"></div>
 
         <footer class="mt-6 text-center text-gray-400 text-sm">
             Powered by Pannellum & Tailwind CSS
@@ -63,7 +52,6 @@
     <script src="https://cdn.jsdelivr.net/npm/pannellum@2.5.6/build/pannellum.js"></script>
 
     <script>
-        // Define panorama data with URLs and titles
         const panoramas = {
             'livdin': {
                 url: "https://i.postimg.cc/bqLDXqPQ/Living-VR-copy-done-1.jpg",
@@ -82,33 +70,27 @@
                 title: "Bedroom 2"
             },
             
-            // ======= NEW PANORAMAS START HERE ======= -->
-            // ❗❗❗ Remember to replace these placeholder URLs with your actual image URLs ❗❗❗
+            // ======= START CORRECTION HERE =======
             'bedroom3': {
-                url: "https://i.postimg.cc/cx0PQGRN/x02-RGB-color.jpg", // <--- ใส่ URL ของคุณที่นี่
-                title: "Master Bathroom & Walk In Closet"
+                url: "https://i.postimg.cc/cx0PQGRN/x02-RGB-color.jpg",
+                title: "Bedroom 3" // ✅ CORRECTED TITLE
             },
+            // ======= END CORRECTION HERE =======
+            
             'bedroom4': {
-                url: "https://i.postimg.cc/cx0PQGRN/x02-RGB-color.jpg", // <--- ใส่ URL ของคุณที่นี่
+                url: "https://i.postimg.cc/cx0PQGRN/x02-RGB-color.jpg",
                 title: "Bedroom 4"
             },
             'kitchen': {
-                url: "https://i.postimg.cc/cx0PQGRN/x02-RGB-color.jpg", // <--- ใส่ URL ของคุณที่นี่
+                url: "https://i.postimg.cc/cx0PQGRN/x02-RGB-color.jpg",
                 title: "Kitchen"
             }
-            // ======= NEW PANORAMAS END HERE ======= -->
         };
 
-        let currentViewer = null; // Variable to hold the current Pannellum viewer instance
+        let currentViewer = null;
 
-        /**
-         * Loads a specific panorama into the viewer.
-         * @param {string} key - The key of the panorama to load from the 'panoramas' object.
-         */
         function loadPanorama(key) {
             const panoramaContainer = document.getElementById('panorama-viewer');
-
-            // Destroy existing viewer if it exists
             if (currentViewer) {
                 currentViewer.destroy();
                 currentViewer = null; 
@@ -116,10 +98,8 @@
                     panoramaContainer.removeChild(panoramaContainer.firstChild);
                 }
             }
-
             const selectedPanorama = panoramas[key];
             if (selectedPanorama) {
-                // Initialize the Pannellum viewer
                 currentViewer = pannellum.viewer('panorama-viewer', {
                     "type": "equirectangular",
                     "panorama": selectedPanorama.url,
@@ -135,34 +115,25 @@
             }
         }
 
-        // Add event listeners to navigation buttons once the DOM is fully loaded
         document.addEventListener('DOMContentLoaded', () => {
-            // Get references to all buttons
             const btnLivDin = document.getElementById('btn-livdin');
             const btnMsBed = document.getElementById('btn-msbed');
             const btnWalkin = document.getElementById('btn-walkin');
             const btnBedroom2 = document.getElementById('btn-bedroom2');
-            // ======= NEW BUTTON REFERENCES START HERE =======
             const btnBedroom3 = document.getElementById('btn-bedroom3');
             const btnBedroom4 = document.getElementById('btn-bedroom4');
             const btnKitchen = document.getElementById('btn-kitchen');
-            // ======= NEW BUTTON REFERENCES END HERE =======
 
-            // Attach click event listeners to each button
             btnLivDin.addEventListener('click', () => loadPanorama('livdin'));
             btnMsBed.addEventListener('click', () => loadPanorama('msbed'));
             btnWalkin.addEventListener('click', () => loadPanorama('walkin'));
             btnBedroom2.addEventListener('click', () => loadPanorama('bedroom2'));
-            // ======= NEW EVENT LISTENERS START HERE =======
             btnBedroom3.addEventListener('click', () => loadPanorama('bedroom3'));
             btnBedroom4.addEventListener('click', () => loadPanorama('bedroom4'));
             btnKitchen.addEventListener('click', () => loadPanorama('kitchen'));
-            // ======= NEW EVENT LISTENERS END HERE =======
 
-            // Load the "Living & Dining" panorama by default
             loadPanorama('livdin');
         });
     </script>
-
 </body>
 </html>
