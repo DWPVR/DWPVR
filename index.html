@@ -15,30 +15,30 @@
 
     <div class="container mx-auto p-4 flex flex-col flex-grow">
         <header class="bg-gray-900 text-white px-5 py-2.5 rounded-lg shadow-lg mb-6 flex items-center justify-center">
-            <h1 class="text-sm font-bold text-center">4 Bedroom Tour</h1>
+            <h1 class="text-sm font-bold text-center">360° Property Tour</h1>
         </header>
 
         <nav class="flex flex-wrap justify-center gap-4 mb-6">
-            <button id="btn-livdin" class="px-5 py-2.5 bg-gray-700 text-white text-sm font-semibold rounded-full shadow-md hover:bg-gray-600 transition-all duration-300 transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-opacity-50">
-                Living & Dining
+            <button id="btn-livdin1" class="px-5 py-2.5 bg-gray-700 text-white text-sm font-semibold rounded-full shadow-md hover:bg-gray-600 transition-all duration-300 transform hover:scale-105">
+                Living & Dining View 1
             </button>
-            <button id="btn-msbed" class="px-5 py-2.5 bg-gray-700 text-white text-sm font-semibold rounded-full shadow-md hover:bg-gray-600 transition-all duration-300 transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-opacity-50">
+            <button id="btn-livdin2" class="px-5 py-2.5 bg-gray-700 text-white text-sm font-semibold rounded-full shadow-md hover:bg-gray-600 transition-all duration-300 transform hover:scale-105">
+                Living & Dining View 2
+            </button>
+            <button id="btn-livdin3" class="px-5 py-2.5 bg-gray-700 text-white text-sm font-semibold rounded-full shadow-md hover:bg-gray-600 transition-all duration-300 transform hover:scale-105">
+                Living & Dining View 3
+            </button>
+            <button id="btn-msbed" class="px-5 py-2.5 bg-gray-700 text-white text-sm font-semibold rounded-full shadow-md hover:bg-gray-600 transition-all duration-300 transform hover:scale-105">
                 Master Bedroom
             </button>
-            <button id="btn-walkin" class="px-5 py-2.5 bg-gray-700 text-white text-sm font-semibold rounded-full shadow-md hover:bg-gray-600 transition-all duration-300 transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-opacity-50">
-                Master Bathroom & Walk-in
+            <button id="btn-msbath1" class="px-5 py-2.5 bg-gray-700 text-white text-sm font-semibold rounded-full shadow-md hover:bg-gray-600 transition-all duration-300 transform hover:scale-105">
+                Master Bathroom View 1
             </button>
-            <button id="btn-bedroom2" class="px-5 py-2.5 bg-gray-700 text-white text-sm font-semibold rounded-full shadow-md hover:bg-gray-600 transition-all duration-300 transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-opacity-50">
+            <button id="btn-msbath2" class="px-5 py-2.5 bg-gray-700 text-white text-sm font-semibold rounded-full shadow-md hover:bg-gray-600 transition-all duration-300 transform hover:scale-105">
+                Master Bathroom View 2
+            </button>
+            <button id="btn-bedroom2" class="px-5 py-2.5 bg-gray-700 text-white text-sm font-semibold rounded-full shadow-md hover:bg-gray-600 transition-all duration-300 transform hover:scale-105">
                 Bedroom 2
-            </button>
-            
-            <button id="btn-bedroom3" class="px-5 py-2.5 bg-gray-700 text-white text-sm font-semibold rounded-full shadow-md hover:bg-gray-600 transition-all duration-300 transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-opacity-50">
-                Bedroom 3 </button>
-            <button id="btn-bedroom4" class="px-5 py-2.5 bg-gray-700 text-white text-sm font-semibold rounded-full shadow-md hover:bg-gray-600 transition-all duration-300 transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-opacity-50">
-                Bedroom 4
-            </button>
-            <button id="btn-kitchen" class="px-5 py-2.5 bg-gray-700 text-white text-sm font-semibold rounded-full shadow-md hover:bg-gray-600 transition-all duration-300 transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-opacity-50">
-                Kitchen
             </button>
         </nav>
 
@@ -52,38 +52,36 @@
     <script src="https://cdn.jsdelivr.net/npm/pannellum@2.5.6/build/pannellum.js"></script>
 
     <script>
+        // ======= PANORAMA DATA UPDATED =======
+        // ❗❗❗ อย่าลืมเปลี่ยน URL รูปภาพตัวอย่างเป็น URL ของคุณเอง ❗❗❗
         const panoramas = {
-            'livdin': {
-                url: "https://i.postimg.cc/bqLDXqPQ/Living-VR-copy-done-1.jpg",
-                title: "Living & Dining"
+            'livdin1': {
+                url: "https://i.postimg.cc/bqLDXqPQ/Living-VR-copy-done-1.jpg", // <--- ใส่ URL ของคุณ
+                title: "Living & Dining View 1"
+            },
+            'livdin2': {
+                url: "https://i.postimg.cc/MxxSBVVp/MSB-done.jpg", // <--- ใส่ URL ของคุณ
+                title: "Living & Dining View 2"
+            },
+            'livdin3': {
+                url: "https://i.postimg.cc/k5Ps0SLv/18-0036-4-BR-VR-08-ms-bath-20250901-copy-done.jpg", // <--- ใส่ URL ของคุณ
+                title: "Living & Dining View 3"
             },
             'msbed': {
-                url: "https://i.postimg.cc/MxxSBVVp/MSB-done.jpg",
+                url: "https://i.postimg.cc/N0htZNgC/x01-jpg-done.jpg", // <--- ใส่ URL ของคุณ
                 title: "Master Bedroom"
             },
-            'walkin': {
-                url: "https://i.postimg.cc/k5Ps0SLv/18-0036-4-BR-VR-08-ms-bath-20250901-copy-done.jpg",
-                title: "Master Bathroom & Walk In Closet"
+            'msbath1': {
+                url: "https://i.postimg.cc/cx0PQGRN/x02-RGB-color.jpg", // <--- ใส่ URL ของคุณ
+                title: "Master Bathroom View 1"
+            },
+            'msbath2': {
+                url: "https://i.postimg.cc/pX9rM7p5/pexels-photo-3773577.jpg", // <--- ใส่ URL ของคุณ
+                title: "Master Bathroom View 2"
             },
             'bedroom2': {
-                url: "https://i.postimg.cc/N0htZNgC/x01-jpg-done.jpg",
+                url: "https://i.postimg.cc/W3sLqC3T/pexels-photo-7538947.jpg", // <--- ใส่ URL ของคุณ
                 title: "Bedroom 2"
-            },
-            
-            // ======= START CORRECTION HERE =======
-            'bedroom3': {
-                url: "https://i.postimg.cc/cx0PQGRN/x02-RGB-color.jpg",
-                title: "Bedroom 3" // ✅ CORRECTED TITLE
-            },
-            // ======= END CORRECTION HERE =======
-            
-            'bedroom4': {
-                url: "https://i.postimg.cc/cx0PQGRN/x02-RGB-color.jpg",
-                title: "Bedroom 4"
-            },
-            'kitchen': {
-                url: "https://i.postimg.cc/cx0PQGRN/x02-RGB-color.jpg",
-                title: "Kitchen"
             }
         };
 
@@ -115,27 +113,27 @@
             }
         }
 
+        // ======= EVENT LISTENERS UPDATED =======
         document.addEventListener('DOMContentLoaded', () => {
-            const btnLivDin = document.getElementById('btn-livdin');
+            const btnLivDin1 = document.getElementById('btn-livdin1');
+            const btnLivDin2 = document.getElementById('btn-livdin2');
+            const btnLivDin3 = document.getElementById('btn-livdin3');
             const btnMsBed = document.getElementById('btn-msbed');
-            const btnWalkin = document.getElementById('btn-walkin');
+            const btnMsBath1 = document.getElementById('btn-msbath1');
+            const btnMsBath2 = document.getElementById('btn-msbath2');
             const btnBedroom2 = document.getElementById('btn-bedroom2');
-            const btnBedroom3 = document.getElementById('btn-bedroom3');
-            const btnBedroom4 = document.getElementById('btn-bedroom4');
-            const btnKitchen = document.getElementById('btn-kitchen');
 
-            btnLivDin.addEventListener('click', () => loadPanorama('livdin'));
+            btnLivDin1.addEventListener('click', () => loadPanorama('livdin1'));
+            btnLivDin2.addEventListener('click', () => loadPanorama('livdin2'));
+            btnLivDin3.addEventListener('click', () => loadPanorama('livdin3'));
             btnMsBed.addEventListener('click', () => loadPanorama('msbed'));
-            btnWalkin.addEventListener('click', () => loadPanorama('walkin'));
+            btnMsBath1.addEventListener('click', () => loadPanorama('msbath1'));
+            btnMsBath2.addEventListener('click', () => loadPanorama('msbath2'));
             btnBedroom2.addEventListener('click', () => loadPanorama('bedroom2'));
-            btnBedroom3.addEventListener('click', () => loadPanorama('bedroom3'));
-            btnBedroom4.addEventListener('click', () => loadPanorama('bedroom4'));
-            btnKitchen.addEventListener('click', () => loadPanorama('kitchen'));
 
-            loadPanorama('livdin');
+            // Load the first view by default
+            loadPanorama('livdin1');
         });
     </script>
 </body>
 </html>
-
-
